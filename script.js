@@ -13,7 +13,7 @@ const displayData = (tools) =>{
     const cardsContainer = document.getElementById("cards-container");
 
     tools.forEach(tool =>{
-        console.log(tool);
+        // console.log(tool);
 
         const cardDiv = document.createElement("div");
         cardDiv.classList = "bg-white drop-shadow-lg border rounded-lg";
@@ -36,7 +36,7 @@ const displayData = (tools) =>{
                             <p>${tool.published_in}</p>
                         </div>
                     </div>
-                    <i onclick="my_modal.showModal()" class="fa-solid fa-arrow-right p-3 bg-sky-100 text-sky-500 rounded-full cursor-pointer"></i>
+                    <i onclick="my_modal.showModal(); loadToolDetails('${tool.id}')" class="fa-solid fa-arrow-right p-3 bg-sky-100 text-sky-500 rounded-full cursor-pointer"></i>
                 </div>
             </div>
         `;
@@ -54,6 +54,18 @@ const displayData = (tools) =>{
 
 
 
+// Load tool details
+const loadToolDetails = async (id) =>{
+    const res = await fetch(`https://openapi.programming-hero.com/api/ai/tool/${id}`);
+    const data = await res.json();
+    const toolDetails = data.data;
+    displayToolDetails(toolDetails);
+}
+
+// Display tool details
+const displayToolDetails = (toolDetails) =>{
+    console.log(toolDetails);
+}
 
 
 
