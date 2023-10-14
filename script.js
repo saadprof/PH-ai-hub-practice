@@ -22,7 +22,7 @@ const displayData = (tools) =>{
                 <div>
                     <img class="mx-auto rounded-lg" src="${tool.image}" alt="Ai tool image" />
                 </div>
-                <h3 class="text-2xl font-semibold mt-3">Features</h3>
+                <h3 class="text-2xl font-semibold mt-3 mb-1">Features</h3>
                 <ol id="features-container" class="list-decimal ml-4">
                     
                 </ol>
@@ -40,6 +40,15 @@ const displayData = (tools) =>{
                 </div>
             </div>
         `;
+        const featuresContainer = cardDiv.querySelector("#features-container");
+        const features = tool.features;
+        features.forEach(feature =>{
+            const featureList = document.createElement("li");
+            featureList.innerText = `${feature}`;
+            featuresContainer.appendChild(featureList);
+        });
+
+
 
         cardsContainer.appendChild(cardDiv);
     });
