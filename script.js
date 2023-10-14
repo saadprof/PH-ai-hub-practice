@@ -22,7 +22,7 @@ const displayData = (tools) =>{
                 <div>
                     <img class="mx-auto rounded-lg" src="${tool.image}" alt="Ai tool image" />
                 </div>
-                <h3 class="text-2xl font-semibold mt-3 mb-1">Features</h3>
+                <h3 class="text-2xl font-semibold mt-3 mb-">Features</h3>
                 <ol id="features-container" class="list-decimal ml-4">
                     
                 </ol>
@@ -36,7 +36,7 @@ const displayData = (tools) =>{
                             <p>${tool.published_in}</p>
                         </div>
                     </div>
-                    <i class="fa-solid fa-arrow-right p-3 bg-sky-100 text-sky-500 rounded-full cursor-pointer"></i>
+                    <i onclick="my_modal.showModal()" class="fa-solid fa-arrow-right p-3 bg-sky-100 text-sky-500 rounded-full cursor-pointer"></i>
                 </div>
             </div>
         `;
@@ -48,11 +48,13 @@ const displayData = (tools) =>{
             featuresContainer.appendChild(featureList);
         });
 
-
-
         cardsContainer.appendChild(cardDiv);
     });
 }
+
+
+
+
 
 
 loadTool();
