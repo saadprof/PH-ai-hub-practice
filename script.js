@@ -72,13 +72,13 @@ const displayToolDetails = (toolDetails) => {
             <form method="dialog">
                 <button class="btn btn-md btn-circle btn-ghost absolute right-0 top-0 rounded-none bg-sky-100 text-sky-500">✕</button>
             </form>
-            <div class="mt-10">
+            <div class="mt-10 flex gap-4">
                 <div class="bg-sky-50 border border-sky-300 rounded-lg">
                     <div class="p-4">
                         <p class="text-xl font-semibold">${toolDetails.description}</p>
                         
                         <!-- Pricing -->
-                        <div id="pricing-text" class="text-center flex justify-between my-2">
+                        <div id="pricing-text" class="text-center flex justify-between gap-2 my-2">
                             
                         </div>
 
@@ -105,8 +105,15 @@ const displayToolDetails = (toolDetails) => {
                     </div>
                 </div>
 
-                <div>
-                
+                <div class="bg-white drop-shadow-lg border rounded-lg">
+                    <div class="p-4 text-center">
+                        <div class="relative">
+                            <img src="${toolDetails.image_link[0]}" class="mx-auto rounded-lg" >
+                            <div class="absolute top-2 right-2 badge bg-sky-200 border-sky-50 p-3 text-sky-600 font-semibold">${toolDetails?.accuracy?.score * 100 || "50"}% accuracy</div>
+                        </div>
+                        <h3 class="mt-4 text-xl font-semibold">${toolDetails.input_output_examples[0].input ? toolDetails.input_output_examples[0].input : "No Data" }</h3>
+                        <p class="mt-1">${toolDetails.input_output_examples[0].output}</p>
+                    </div>
                 </div>
             </div>
         </div>
